@@ -1,3 +1,31 @@
+##
+# @file utils.py
+# @brief Utility functions for image and label handling in YOLO training/testing workflows.
+#
+# This file contains helper functions commonly used in machine learning projects involving YOLO models.
+# It includes:
+# - Logger setup for unified logging across the application.
+# - YAML configuration loading.
+# - Directory creation utility.
+# - Image loading and saving using OpenCV.
+# - YOLO-format label (.txt) reading and writing.
+#
+# ### Functions:
+# - `setup_logger`: Creates and configures a logger.
+# - `read_yaml`: Loads a YAML file and returns its contents as a dictionary.
+# - `ensure_dir`: Ensures a directory exists (creates it if needed).
+# - `load_image`: Loads an image using OpenCV and returns it as a numpy array.
+# - `save_image`: Saves a given image to disk.
+# - `load_labels`: Loads bounding boxes and class IDs from a YOLO-format label file.
+# - `save_labels`: Saves bounding boxes and class IDs to a YOLO-format label file.
+#
+# These functions are modular and reusable across training, testing, and dataset preparation scripts.
+#
+# @author Kotresh GB
+# @date 04-06-2025
+##
+
+
 import os
 import cv2
 import yaml

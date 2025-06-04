@@ -1,3 +1,33 @@
+##
+# @file tester.py
+# @brief Script to run inference using a trained YOLO segmentation model.
+#
+# This script loads a trained YOLO model and performs inference on images, videos, or folders.
+# It saves the predicted segmentations, bounding boxes, and result texts in the specified output directory.
+#
+# ### Usage:
+# ```bash
+# python tester.py --weights best.pt --source path/to/images --save_dir runs/segment
+# ```
+#
+# ### Arguments:
+# - '--weights': Path to the trained YOLO model weights (e.g., best.pt).
+# - '--source': Path to an image, folder, or video file for performing inference.
+# - '--save_dir': Directory where inference results will be saved (default: 'runs/segment').
+#
+# ### Functions:
+# - 'test_model(weights, source, save_dir)': Loads the model and performs inference on the source data, saving the results.
+#
+# Results include:
+# - Segmented masks (if model is segmentation).
+# - Bounding boxes.
+# - '.txt' annotations in YOLO format.
+#
+# @author Kotresh GB
+# @date 04-06-2025
+##
+
+
 import argparse
 from ultralytics import YOLO
 import os

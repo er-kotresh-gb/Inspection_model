@@ -1,3 +1,39 @@
+##
+# @file augmentor.py
+# @brief This module performs data augmentation for polygon-based annotations (e.g., YOLO polygon format).
+#
+# The `PolygonAugmentor` class reads polygon annotations, applies Albumentations-based image transformations,
+# and writes the augmented images and updated annotations to disk. It's designed for semantic or instance segmentation tasks
+# where the object is represented as a series of normalized polygon points.
+#
+# ### Main Features:
+# - Reads YOLO-style polygon labels (class_id followed by x1 y1 x2 y2 ...).
+# - Applies augmentations (flip, blur, contrast, CLAHE). And if we need rotation then also we can add
+# - Supports multithreading for fast processing.
+# - Handles coordinate normalization and boundary clipping.
+#
+# ### Classes:
+# - `PolygonAugmentor`: Core class to perform augmentations and write updated labels/images.
+#
+# ### Public Methods:
+# - `__init__()`: Initializes paths, logger, and augmentation pipeline.
+# - `read_polygons(label_path)`: Reads polygon annotations from a text file.
+# - `write_polygons(polygons, output_path)`: Writes polygons back to a file in YOLO format.
+# - `process_image(image_path)`: Applies augmentations and writes augmented image and label.
+# - `run()`: Entry point to run augmentation on all `.jpg` files in the input folder using multithreading.
+#
+# ### Example Usage:
+# @code
+# augmentor = PolygonAugmentor("images/", "labels/", "aug_images/", "aug_labels/", logger)
+# augmentor.run()
+# @endcode
+#
+# @author Kotresh GB
+# @date 04-06-2025
+##
+
+
+
 import os
 import cv2
 import albumentations as A
